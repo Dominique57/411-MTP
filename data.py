@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import os 
 import sys
+import warnings
+warnings.filterwarnings("ignore")
 
 def tryOpen(path, settings):
     try:
@@ -77,7 +79,7 @@ class Data:
         self.length = 5
         self.filename = "data"
         self.extension = "data"
-        self.names = [ None ] * max(self.length, 1)
+        self.names = [str(i) for i in range(max(self.length, 1))]
         
     """
     Open data in panda data frame object
@@ -103,8 +105,9 @@ class Data:
         mean = self.df.mean(axis=0).array
         std = self.df.std(axis=0).array
         var = self.df.var(axis=0).array
+        print("{:14} {:10} {:10} {:10}".format("Host", "mean", "stand dev", "variance"))
         for i in range(self.length):
-            print("{} {:4.4f} {:4.4f} {:4.4f}".format(self.names[i], mean[i], std[i], var[i]))
+            print("{:15} {:<10.4f} {:<10.4f} {:<10.4f}".format(self.names[i], mean[i], std[i], var[i]))
 
     
     """
@@ -125,12 +128,12 @@ class Data:
 
 
 def main():
-    print("main")
     data = Data()
     data.LoadSettings(sys.argv[1]) if len(sys.argv) > 1 else data.LoadSettings()
     data.OpenData()
     data.OutpoutHistogram()
     data.OutpoutBloxpot()
+    
     data.PrintStat()
     
 main()
