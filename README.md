@@ -28,9 +28,9 @@ $ bash data.sh
 $ python3 data.py [settings file name (default = settings.ini)]
 ```
 ### Script output
->> * This script will an histogram of all domains
->> * The script will generate a Blox plot with all domains
->> * The script will show statistical data for each domain
+> * This script will generate an histogram of all domains
+> * The script will generate a Blox plot with all domains
+> * The script will show statistical data for each domain
 
 ### Project instructions
 Create a new personal project on GITHUB: 411-MTP
