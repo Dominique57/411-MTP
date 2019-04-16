@@ -14,8 +14,8 @@
     *able to import sys for parameter passing (if needed)
 
 ### Script execution
-* The bash scriptwill generate all the ping data by creating one subprocess for each host
-* The bash script will also genereate a settings file to be read by the python script
+* The bash scriptwill generate all the ping data by creating one subprocess for each host in a date-named folder
+* The bash script will also genereate a settings file to be read by the python script in the same date-named folder
 * Python will try to read the settings file passed by parameter or by default settings.ini
 * Python will then execute according to settings file and if files are missing, a default behaviour will be executed
 
@@ -24,13 +24,14 @@
 ```
 $ bash data.sh
 ```
-* To execute the Python script you need to type
+* To execute the Python script you need to type with the script in the same folder as the data and the setting file
 ```
 $ python3 data.py [settings file name (default = settings.ini)]
 ```
 ### Script output
 > * This script will generate an histogram of all domains
 > * The script will generate a Blox plot with all domains
+> * The script will generate a plot with all domains
 > * The script will show statistical data for each domain
 
 ### Project instructions
