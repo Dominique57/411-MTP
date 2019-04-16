@@ -113,7 +113,7 @@ class Data:
     """
     Outpout histogram of datafram to .png
     """
-    def OutpoutHistogram(self, path="histogram.png"):
+    def OutpoutHistogram(self, path="PINGhistogram.png"):
         fig, ax = plt.subplots()
         (self.df).hist(ax=ax)
         fig.savefig(path)
@@ -121,9 +121,17 @@ class Data:
     """
     Bloxpot histogram of datafram to .png
     """
-    def OutpoutBloxpot(self, path="bloxpot.png"):
+    def OutpoutBloxpot(self, path="PINGbloxpot.png"):
         fig, ax = plt.subplots()
         (self.df).boxplot(ax=ax)
+        fig.savefig(path)
+
+    """
+    Bloxpot histogram of datafram to .png
+    """
+    def OutpoutPlot(self, path="PINGplot.png"):
+        fig, ax = plt.subplots()
+        (self.df).plot(ax=ax)
         fig.savefig(path)
 
 
@@ -133,7 +141,7 @@ def main():
     data.OpenData()
     data.OutpoutHistogram()
     data.OutpoutBloxpot()
-    
+    data.OutpoutPlot()
     data.PrintStat()
     
 main()
