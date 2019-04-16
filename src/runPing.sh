@@ -13,4 +13,4 @@ if [ -z "$2" ];then
     exit 1
 fi
 
-ping -c 100 -i 0.2 $HOST | awk 'BEGIN{FS="[:]"}{if($2 != ""){print $2}}' | awk 'BEGIN {FS="[=]|[ ]"}{if($7 != ""){print $7}}' > $FILENAME
+ping -c 100 -i 3 $HOST | awk 'BEGIN{FS="[:]"}{if($2 != ""){print $2}}' | awk 'BEGIN {FS="[=]|[ ]"}{if($7 != ""){print $7}}' > $FILENAME

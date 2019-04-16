@@ -2,6 +2,8 @@
 
 SETTINGSPATH='settings.ini'
 
+FOLDERNAME="$(date +"%Y_%M_%d__%H_%S")"
+
 NAME='hostdata'
 EXT='data'
 LENGTH=5
@@ -27,4 +29,16 @@ for pid in ${pids[*]}; do
     wait $pid
 done
 
-python3 data.py $SETTINGSPATH
+python3 data.py $SETTINGSPATH > sumarry.$EXT
+cat sumarry.$EXT
+
+#clean project folder
+mkdir -p $FOLDERNAME
+mv sumarry.$EXT $FOLDERNAME/.
+mv $SETTINGSPATH $FOLDERNAME/.
+mv *.png $FOLDERNAME/.
+for ((j=0; j<$LENGTH; j++))
+do
+    mv $NAME$j.$EXT $FOLDERNAME/.
+done
+echo "to run python on existing data, simply move python script in desired folder and execute with python3 data.py [settings file name (default=settings.ini)]"
