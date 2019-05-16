@@ -5,6 +5,7 @@
     * Write access on current directory to create files (and able to read thus-specified files)
     * Able to launch Python3 and Python script named "data.py"
     * Able to launch runPing.sh as sub-process
+
 ### Python specification 
 * To execute the Python script you need the following
     * Python3 or greater
